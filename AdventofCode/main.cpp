@@ -3,18 +3,17 @@
 #include <sstream>       // For string stream (istringstream)
 #include <vector>        // For using the vector container
 #include <algorithm>     // For sort() and other algorithms
-#include <cmath>         // For abs() function
+#include "lists.h"
 using namespace std;
+
 int main() {
     vector<int> l1, l2;
-    int i, num1, num2;
+    int num1, num2;
 
     string s;
-    bool first = true;
 
     ifstream inFile;
     inFile.open("input.txt");
-    int total = 0;
 
     while(getline(inFile, s)) {
         istringstream ss(s);
@@ -26,9 +25,7 @@ int main() {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
-    for(i = 0; i < l1.size(); i++) {
-        total += abs(l1[i] - l2[i]);
-    }
+    int total = calculateTotalDifferences(l1, l2);
 
     cout << total;
 }
