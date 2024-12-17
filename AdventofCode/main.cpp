@@ -25,7 +25,9 @@ int main() {
     sort(l1.begin(), l1.end());
     sort(l2.begin(), l2.end());
 
-    int total = calculateTotalDifferences(l1, l2);
+    int differences = calculateTotalDifferences(l1, l2);
+    int similarityscore = similarityScore(l1, l2);
 
-    cout << total;
+    cout << differences << endl;
+    cout << "Simalarity Score: " << similarityscore;
 }
