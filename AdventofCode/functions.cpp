@@ -1,8 +1,29 @@
-#include "lists.h"
+#include "functions.h"
 #include <cmath>  
 #include <algorithm>
+#include <iostream>      
+#include <fstream>       
+#include <sstream>
+#include <vector> 
 
 using namespace std;
+
+void fillScholarLists(std::vector<int> &l1, std::vector<int> &l2) {
+    int num1, num2;
+    string s;
+    ifstream inFile;
+    inFile.open("input.txt");
+
+    while(getline(inFile, s)) {
+        istringstream ss(s);
+        ss >> num1 >> num2;
+        l1.push_back(num1);
+        l2.push_back(num2);
+    }
+
+    sort(l1.begin(), l1.end());
+    sort(l2.begin(), l2.end());
+}
 
 int calculateTotalDifferences(const vector<int>& l1, const vector<int>& l2) {
     int total = 0;
